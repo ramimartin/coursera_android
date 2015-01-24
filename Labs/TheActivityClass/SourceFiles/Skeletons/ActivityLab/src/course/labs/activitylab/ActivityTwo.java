@@ -26,7 +26,7 @@ public class ActivityTwo extends Activity {
 	// mCreate, mRestart, mStart and mResume 	
 	// to count calls to onCreate(), onRestart(), onStart() and
 	// onResume(). These variables should not be defined as static.
-	
+
 	// You will need to increment these variables' values when their
 	// corresponding lifecycle methods get called.
 	
@@ -36,8 +36,17 @@ public class ActivityTwo extends Activity {
 	// TODO: Create variables for each of the TextViews
 	// named  mTvCreate, mTvRestart, mTvStart, mTvResume.
 	// for displaying the current count of each counter variable
+    private TextView mTvCreate;
+    private Long mCreate;
+    private TextView mTvRestart;
+    private Long mRestart;
+    private TextView mTvResume;
+    private Long mResume;
+    private TextView mTvStart;
+    private Long mStart;
 
-	@Override
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_two);
@@ -72,7 +81,10 @@ public class ActivityTwo extends Activity {
 			// TODO:
 			// Restore value of counters from saved state
 			// Only need 4 lines of code, one for every count variable
-
+            mCreate = savedInstanceState.getLong(CREATE_KEY);
+            mResume = savedInstanceState.getLong(RESUME_KEY);
+            mRestart = savedInstanceState.getLong(RESTART_KEY);
+            mStart = savedInstanceState.getLong(START_KEY);
 
 			
 			
@@ -171,10 +183,10 @@ public class ActivityTwo extends Activity {
 		// TODO:
 		// Save counter state information with a collection of key-value pairs
 		// 4 lines of code, one for every count variable
-
-
-
-		
+        savedInstanceState.putLong(CREATE_KEY, mCreate);
+        savedInstanceState.putLong(START_KEY, mStart);
+        savedInstanceState.putLong(RESTART_KEY, mRestart);
+        savedInstanceState.putLong(RESUME_KEY, mResume);
 		
 		
 		
